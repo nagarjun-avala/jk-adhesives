@@ -6,13 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>JK Adhesives | Premium PVA Solutions</title>
+
+    <!-- SEO -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.jkadhesives.com/#organization",
+      "name": "JK Adhesives",
+      "url": "https://www.jkadhesives.com",
+      "logo": "https://www.jkadhesives.com/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-98765-43210",
+        "contactType": "sales",
+        "areaServed": "IN",
+        "availableLanguage": ["en", "hi"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Industrial Estate, Phase 3",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400001",
+        "addressCountry": "IN"
+      },
+      "taxID": "27ABCDE1234F1Z5"
+    },
+    {
+      "@type": "Product",
+      "name": "JK WoodBond Pro",
+      "image": "https://www.jkadhesives.com/woodbond.jpg",
+      "description": "High-strength PVA specifically formulated for furniture manufacturing and carpentry. Water-resistant (D3 standard).",
+      "brand": {
+        "@type": "Brand",
+        "name": "JK Adhesives"
+      },
+      "sku": "JK-WB-PRO",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.jkadhesives.com/#products"
+      }
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "Organization",
+        "name": "JK Adhesives"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Rajesh Kumar"
+      },
+      "reviewBody": "Switching to JK Adhesives improved our production line speed by 15%. Their batch consistency is unmatched in the market."
+    }
+  ]
+}
+</script>
+
 </head>
 
 <body>
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">JK Adhesives</a>
+                <div class="logo-container">
+                    <a href="#" class="logo">JK Adhesives</a>
+                    <span class="gst-header">GST: 36ARZPV3677J1ZJ</span>
+                </div>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
 
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
@@ -21,34 +92,35 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
 
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+
             </nav>
         </div>
     </header>
 
     <section id="home" class="hero">
-        <div class="carousel-slide active"
-            style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80');">
+        <div class="carousel-slide active">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80"
+                alt="Industrial Adhesive Factory" class="slide-bg">
             <div class="hero-content">
                 <h1>Industrial Strength PVA Solutions</h1>
                 <p>Leading the market in B2B adhesive manufacturing for over 20 years.</p>
                 <a href="#contact" class="btn">Request a Quote</a>
             </div>
         </div>
-        <div class="carousel-slide"
-            style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&q=80');">
+
+        <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&q=80"
+                alt="Heavy Duty Wood Glue" class="slide-bg" loading="lazy">
             <div class="hero-content">
                 <h1>Engineered for Durability</h1>
                 <p>High-viscosity formulas designed for heavy-duty furniture and packaging.</p>
                 <a href="#products" class="btn">View Catalog</a>
             </div>
         </div>
-        <div class="carousel-slide"
-            style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80');">
+
+        <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80"
+                alt="Sustainable Adhesive Solutions" class="slide-bg" loading="lazy">
             <div class="hero-content">
                 <h1>Sustainable & Non-Toxic</h1>
                 <p>Eco-friendly water-based adhesives compliant with international safety standards.</p>
@@ -93,10 +165,9 @@
         <div class="container">
             <h2 class="section-title fade-in">Trusted By Industry Leaders</h2>
             <div class="partner-logos fade-in">
-                <div class="partner-logo">FINE FURNITURE CORP</div>
-                <div class="partner-logo">APEX PACKAGING</div>
-                <div class="partner-logo">ROYAL PUBLISHERS</div>
-                <div class="partner-logo">GLOBAL WOODWORKS</div>
+                <div class="partner-logo">ITC</div>
+                <div class="partner-logo">VST</div>
+                <div class="partner-logo">Nuzen</div>
             </div>
         </div>
     </section>
@@ -109,19 +180,19 @@
                     <p class="testimonial-text">"Switching to JK Adhesives improved our production line speed by 15%.
                         Their batch consistency is unmatched in the market."</p>
                     <div class="client-name">Rajesh Kumar</div>
-                    <div class="client-role">Plant Manager, Apex Packaging</div>
+                    <div class="client-role">Plant Manager, ITC</div>
                 </div>
                 <div class="testimonial-card fade-in">
                     <p class="testimonial-text">"We need adhesives that can withstand humidity changes. JK WoodBond has
                         performed flawlessly for our export furniture."</p>
                     <div class="client-name">Sarah Jenkins</div>
-                    <div class="client-role">Procurement Head, Fine Furniture Corp</div>
+                    <div class="client-role">Procurement Head, VST</div>
                 </div>
                 <div class="testimonial-card fade-in">
                     <p class="testimonial-text">"Excellent B2B support. They customized the viscosity for our specific
                         machines within a week."</p>
                     <div class="client-name">Amit Patel</div>
-                    <div class="client-role">Director, Global Woodworks</div>
+                    <div class="client-role">Director, Nuzen</div>
                 </div>
             </div>
         </div>
@@ -138,16 +209,20 @@
                 <div class="footer-col">
                     <h4>Contact Info</h4>
                     <ul>
-                        <li>📍 123 Industrial Estate, Phase 3, Mumbai, India</li>
-                        <li>📞 +91 98765 43210</li>
-                        <li>📧 sales@jkadhesives.com</li>
+                        <li>📍 Street No. 1.D-mart Lane,
+                            <br /> Kapra Village, Keesara Mandal,
+                            <br />Hyderabad,
+                            Telangana -
+                            500062
+                        </li>
+                        <li>📞 +91 9492893405</li>
+                        <!-- <li>📧 [EMAIL_ADDRESS]</li> -->
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Business Details</h4>
                     <ul>
-                        <li><strong>GST No:</strong> 27ABCDE1234F1Z5</li>
-                        <li><strong>Reg No:</strong> U12345MH2023PTC</li>
+                        <li><strong>GST No:</strong> 36ARZPV3677J1ZJ</li>
                     </ul>
                 </div>
             </div>
@@ -156,6 +231,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

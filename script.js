@@ -1,20 +1,48 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. Mobile Menu Logic (With Error Prevention) ---
+    console.log("Page Loaded. initializing scripts...");
+
+    // --- 1. Mobile Menu Logic (FIXED) ---
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
+    const navLinksItems = document.querySelectorAll(".nav-links li a");
 
+    // --- DEBUG CHECK ---
+    // Open your browser console (F12). If you see these errors, your HTML class names are wrong.
+    if (!hamburger) console.error("Error: Element with class '.hamburger' not found!");
+    if (!navLinks) console.error("Error: Element with class '.nav-links' not found!");
+
+    // --- CLICK EVENT ---
     if (hamburger && navLinks) {
-        hamburger.addEventListener("click", () => {
+        hamburger.addEventListener("click", (e) => {
+            // Prevent any weird default browser behavior
+            e.preventDefault();
+            e.stopPropagation();
+
+            console.log("Hamburger clicked!"); // Check console when you click
+
+            // Toggle the class
             hamburger.classList.toggle("active");
             navLinks.classList.toggle("active");
+
+            console.log("Classes toggled. Nav active?", navLinks.classList.contains('active'));
         });
 
-        document.querySelectorAll(".nav-links li a").forEach(item => {
-            item.addEventListener("click", () => {
+        // Close menu when clicking a link
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
                 hamburger.classList.remove("active");
                 navLinks.classList.remove("active");
             });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+            }
         });
     }
 
@@ -51,44 +79,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. Scroll Animation Logic (The "Safe" Way) ---
-    // This ensures content is only hidden IF the observer is actually ready to show it.
+    // --- 3. Scroll Animation ---
     const observerOptions = { threshold: 0.1 };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                entry.target.classList.remove('hidden-state'); // Remove the hiding class
+                entry.target.classList.remove('hidden-state');
             }
         });
     }, observerOptions);
 
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => {
-        // Apply the 'hidden-state' class ONLY via JS. 
-        // If JS crashes, this never runs, and content stays visible.
+    document.querySelectorAll('.fade-in').forEach(el => {
         el.classList.add('hidden-state');
         observer.observe(el);
     });
 
-    // --- 4. Smooth Scroll with Header Offset ---
+    // --- 4. Smooth Scroll ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerOffset = 80;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
             }
         });
     });
