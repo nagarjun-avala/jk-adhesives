@@ -6,7 +6,7 @@
     --color-white: #ffffff;
     --color-bg-light: #f4f7f9;
     --color-black: #1a1a1a;
-    --color-grey: #666666;
+    --color-grey: #4a4a4a;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
     --header-height: 80px;
@@ -156,6 +156,10 @@ nav {
     /* Forces it above everything else */
     -webkit-tap-highlight-color: transparent;
     /* Removes blue highlight box on mobile */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 .bar {
@@ -260,6 +264,11 @@ nav {
     transform: translateY(-2px);
 }
 
+.btn:active,
+button:active {
+    transform: scale(0.98);
+}
+
 @keyframes slideUp {
     from {
         transform: translateY(30px);
@@ -288,10 +297,41 @@ nav {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
+    border: none;
+    padding: 0;
+    outline: none;
 }
 
 .nav-dot.active {
     background: var(--color-white);
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    transition: var(--transition);
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-prev {
+    left: 20px;
+}
+
+.carousel-next {
+    right: 20px;
 }
 
 /* --- 3. PRODUCTS & 5. TESTIMONIALS (Grid Systems) --- */
@@ -400,17 +440,25 @@ nav {
 }
 
 /* --- 6. FOOTER --- */
+.contact-section,
 footer {
     background-color: #0b0b0b;
     color: #ccc;
-    padding: 60px 0 20px;
+}
+
+.contact-section {
+    padding: 60px 0 0;
+}
+
+footer {
+    padding: 0;
+    padding-top: 10px;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
-    margin-bottom: 40px;
 }
 
 .footer-col h4 {
@@ -425,13 +473,20 @@ footer {
 
 .footer-col ul li {
     margin-bottom: 10px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.footer-col ul li:hover {
+    color: var(--color-white);
+    opacity: 0.8;
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 20px;
     border-top: 1px solid #333;
     font-size: 0.9rem;
+    padding: 20px 0;
 }
 
 /* --- RESPONSIVE MEDIA QUERIES --- */

@@ -49,10 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. Carousel Logic ---
     const slides = document.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll('.nav-dot');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const heroSection = document.querySelector('.hero');
 
     if (slides.length > 0) {
         let currentSlide = 0;
         const slideInterval = 5000;
+        let slideTimer;
 
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
@@ -67,16 +71,44 @@ document.addEventListener('DOMContentLoaded', () => {
             showSlide(currentSlide);
         }
 
-        let slideTimer = setInterval(nextSlide, slideInterval);
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function startTimer() {
+            if (slideTimer) clearInterval(slideTimer);
+            slideTimer = setInterval(nextSlide, slideInterval);
+        }
+
+        startTimer();
 
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                clearInterval(slideTimer);
                 currentSlide = index;
                 showSlide(currentSlide);
-                slideTimer = setInterval(nextSlide, slideInterval);
+                startTimer();
             });
         });
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                startTimer();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                startTimer();
+            });
+        }
+
+        if (heroSection) {
+            heroSection.addEventListener('mouseenter', () => clearInterval(slideTimer));
+            heroSection.addEventListener('mouseleave', () => startTimer());
+        }
     }
 
     // --- 3. Scroll Animation ---
@@ -86,9 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 entry.target.classList.remove('hidden-state');
+                observer.unobserve(entry.target); // <--- Add this line
             }
         });
     }, observerOptions);
+
 
     document.querySelectorAll('.fade-in').forEach(el => {
         el.classList.add('hidden-state');

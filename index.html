@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <title>JK Adhesives | Premium PVA Solutions</title>
 
+    <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80">
+
     <!-- SEO -->
     <script type="application/ld+json">
 {
@@ -79,11 +82,11 @@
                     <span class="gst-header">GST: 36ARZPV3677J1ZJ</span>
                 </div>
 
-                <div class="hamburger">
+                <button class="hamburger" aria-label="Toggle navigation menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
 
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
@@ -129,10 +132,12 @@
         </div>
 
         <div class="carousel-nav">
-            <div class="nav-dot active" data-slide="0"></div>
-            <div class="nav-dot" data-slide="1"></div>
-            <div class="nav-dot" data-slide="2"></div>
+            <button class="nav-dot active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="nav-dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="nav-dot" data-slide="2" aria-label="Slide 3"></button>
         </div>
+        <button class="carousel-prev" aria-label="Previous Slide">&#10094;</button>
+        <button class="carousel-next" aria-label="Next Slide">&#10095;</button>
     </section>
 
     <section id="products" class="products section-padding">
@@ -198,7 +203,7 @@
         </div>
     </section>
 
-    <footer id="contact">
+    <section id="contact" class="contact-section">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -226,6 +231,11 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
             <div class="footer-bottom">
                 <p>&copy; 2023 JK Adhesives Pvt Ltd. All rights reserved.</p>
             </div>
